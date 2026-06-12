@@ -49,10 +49,9 @@ export default {
   mounted() {
       fetch("https://fw1ge93h1a.execute-api.us-east-1.amazonaws.com/slots")
       .then(res => res.json())
-      .then(data => {
-        const parsed = JSON.parse(data.body);
-        this.slots = parsed.filter(s => !s.isBooked).map(s => s.slot);
-      });
+     .then(data => {
+  this.slots = data.filter(s => !s.isBooked).map(s => s.slot);
+});
   },
   methods: {
     submitAppointment() {
