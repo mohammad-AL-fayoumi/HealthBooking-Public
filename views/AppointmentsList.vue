@@ -73,7 +73,9 @@ export default {
       fetch(`${API_BASE_URL}/appointments`)
         .then(res => res.json())
         .then(data => {
-          this.appointments = Array.isArray(data) ? data : JSON.parse(data.body);
+          this.appointments = Array.isArray(data)
+            ? data
+            : JSON.parse(data.body);
         })
         .catch(err => {
           console.error("Failed to fetch appointments:", err);
